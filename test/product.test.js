@@ -1,6 +1,5 @@
-// IMPORT MODULES under test here:
 import { ProductData } from '../src/ProductArray.js';
-import productData from '../src/ProductDataArray';
+import { productData } from '../src/ProductDataArray';
 const test = QUnit.test;
 
 test('retrieve product by id', function(assert) {

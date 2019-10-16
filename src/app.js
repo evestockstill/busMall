@@ -1,66 +1,63 @@
-import productData from './productData.js';
-import ProductData from './ProductDataArray.js';
-import notSelectedId from './notSelected.js';
-import displayProducts from './displayProducts.js';
-const products = new ProductData(productData);
-const img1 = document.getElementById('img-1');
-const img2 = document.getElementById('img-2');
-const img3 = document.getElementById('img-3');
-const productRadioTags = document.querySelectorAll('input[name=product]');
-const productDisplay = document.querySelectorAll('.product');
-const productName = document.getElementById('product-name');
-const choiceContainer = document.getElementById('product-choice-container');
-const nextBtnContainer = document.getElementById('next-button-container');
-const nextBtn = document.getElementById('next-button');
-const choicesLeft = document.getElementById('choices-left');
-const notSelected = document.getElementById('not-selected');
+import { productData } from './product-data.js';
+import { ProductArray } from './product-array.js';
+const productImageTags = document.querySelectorAll('img');
+const productRadioTags = document.querySelectorAll('input');
+const productName = document.getElementById('product.name');
+const products = new ProductArray(productData);
+const userPicksArray = [];
+// let randomProduct;
+// let randomProduct2;
+// let randomProduct3;
 
-let UserChoicesLeft = 25;
-let live = true;
-let notSelectedId = [];
-
-const masterProductData = new ProductData(products);
-let userChoice = null;
-
-pickProduct();
-const userChoice = (event) => {
-    if (!live) return;
-    const radioElement = event.target;
-    choiceContainer.classList.add('show');
-    radioElement.parentNode.classList.add('picked');
-    UserChoicesLeft--;
-    // const userSelected = randomProduct.id === radioElement.value
-
-}
-
-
-
-
-
-
-let randomProduct1 = products.getRandomProducts();
-let randomProduct2 = products.getRandomProducts();
-let randomProduct3 = products.getRandomProducts();
-
-while (randomProduct1 === randomProduct2) {
-    randomProduct2 = products.getRandomProducts();
-}
-while (randomProduct3 === randomProduct2 || randomProduct3 === randomProduct1 || randomProduct3 === randomProduct2) {
-    randomProduct3 = products.getRandomProducts();
-}
-img1.src = randomProduct1.image;
-img2.src = randomProduct2.image;
-img3.src = randomProduct3.image;
-  
-productRadioTags.forEach((radioTag, i) => {
-    if (i === 0) {
-        radioTag.value = randomProduct1.id;
-    } else if (i === 1) {
-        radioTag.value = randomProduct2.id;
-    } else if (i === 2) {
-        radioTag.value = randomProduct3.id;
+const generateProducts = () => {
+    const randomProduct = products.getRandomProduct();
+    let randomProduct2 = products.getRandomProduct();
+    while (randomProduct.id === randomProduct2.id) {
+        randomProduct2 = products.getRandomProduct();
     }
-    console.log(radioTag.value);
+    let randomProduct3 = products.getRandomProduct();
+    while (randomProduct3.id === randomProduct2.id || randomProduct3.id === randomProduct.id) {
+        randomProduct3 = products.getRandomProduct();
+    }
+    productImageTags.forEach((imageTag, i) => {
+        if (i === 0) {
+            imageTag.src = randomProduct.image;
+        } else if (i === 1) {
+            imageTag.src = randomProduct2.image;
+        } else if (i === 2) {
+            imageTag.src = randomProduct3.image;
+        }
+    });
+    productRadioTags.forEach((radioTag, i) => {
+        if (i === 0) {
+            radioTag.value = randomProduct.id;
+        } else if (i === 1) {
+            radioTag.value = randomProduct2.id;
+        } else if (i === 2) {
+            radioTag.value = randomProduct3.id;
+        }
+    });
+};
+generateProducts();
+function trackUserPicks(productId) {
+    let found = products.findById(userPicksArray, productId);
+    if (!found) {
+        found = {
+            id: productId,
+            timesClicked: 1
+        };
+        userPicksArray.push(found);
+    } else {
+        found.timesClicked++;
+        return;
+    }
+}
+productRadioTags.forEach((radioTag) => {
+    radioTag.addEventListener('input', (event) => {
+        if (event.target) {
+            trackUserPicks(event.target.value);
+        }
+    });
 });
 
-
+export { userPicksArray };
