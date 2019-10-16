@@ -1,32 +1,33 @@
-export class ProductData {
+class ProductData {
     constructor(products) {
         this.products = products.slice();
     }
     getProducts() {
         return this.products;
     }
-    removeProductsById(someId) {
+    removeProductsById(productId) {
         this.products.forEach(product => {
-            if (someId === product.id) {
-                this.products.splice(someId, 1);
+            if (productId === product.id) {
+                this.products.splice(productId, 1);
             }
             
         });
     }
-    getProductById(someId) {
+    getProductById(productId) {
         let productMatch;
         this.products.forEach(product => {
-            if (someId === product.id) {
+            if (productId === product.id) {
                 productMatch = product;
             }
         });
         return productMatch;
     }
     hasAnyProducts() {
-        return this.products.length;
+        return this.products.length > 0;
     }
-    getRandomProduct() {
+    getRandomProducts() {
         const randomProductIndex = Math.floor(Math.random() * this.products.length);
         return this.products[randomProductIndex];
     }
 }
+export default ProductData;

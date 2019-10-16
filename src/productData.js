@@ -56,7 +56,7 @@ const pen = {
 };
 const petSweep = {
     id: 'petSweep',
-    image: '../assets/pet-sweep.jpg',
+    image: '../assets/sweep.jpg',
     name: 'Pet Mop Slippers'
 };
 const scissors = {
@@ -86,7 +86,7 @@ const unicorn = {
 };
 const usb = {
     id: 'usb',
-    image: '../assets/usb.jpg',
+    image: '../assets/usb.gif',
     name: 'Moving Tentacle USB Stick'
 };
 const waterCan = {

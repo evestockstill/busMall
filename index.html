@@ -11,32 +11,33 @@
 </head>
 <body>
     <main>
-        <div class="pick-a-pic">
-            <label class="random">
-                <input type="radio" name="product" value="" />
+        <h2 id="">product-name</h2>
+        <div id="product-choice-container">
+            <label class="random product1">
+                <input type="radio" name="product" value="">
                 <img id="img-1" src="" alt="">
             </label>
-            <label>
-                <input id="img-2" type="radio" name="product" value="" />
-                <img src="" alt="">
+            <label class="random product2">
+                <input type="radio" name="product" value="">
+                <img id="img-2" src="" alt="">
             </label>
-            <label>
-                <input id="img-3" type="radio" name="product" value="" />
-                <img src="" alt="">
+            <label class="random product3">
+                <input type="radio" name="product" value="">
+                <img id="img-3"src="" alt="">
             </label>
         </div>
-        <p id="next-container" class="hidden">
+        <p id="next-button-container" class="hidden">
             <button id="next-button">Next</button>
         </p>
         </section>
-        <section id="results-section" class="hidden">
+        <section id="remaining-section" class="hidden">
             <h2>Data</h2>
             <p>
-                <span id="turn-count"></span>
+                <span id="choices-left"></span>
             </p>
 
             <h2></h2>
-            <ul id="not-chosen"></ul>
+            <ul id="not-selected"></ul>
 
             <p>
                 <a href="./">Shop some more</a>
