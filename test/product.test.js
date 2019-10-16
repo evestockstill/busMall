@@ -1,17 +1,24 @@
 // IMPORT MODULES under test here:
-import { findById } from '../common/utilis.js';
-import productData from '../src/productData.js';
+import { ProductData } from '../src/ProductArray.js';
+import productData from '../src/ProducArray';
 const test = QUnit.test;
 
-test('time to test a function', function(assert) {
+test('retrieve product by id', function(assert) {
     const id = 'bag';
     const expected = {
         id: 'bag',
         image: '../assets/bag.jpg',
         name: 'Rolling R2-D2 Suitcase'
     }; 
-    const product = findById(productData, id);
-    // Make assertions about what is expected valid result
-    // assert.ok(product);
-    assert.deepEqual(product, expected);
+    const productArray = new ProductData(productData);
+    const foundProduct = productArray.getProductById(id);
+    
+    assert.deepEqual(foundProduct, expected);
+});
+test ('remove product by ID', function(assert) {
+    const id = 'bag';
+    const expected = null;
+    const productArray = new ProductData(productData);
+    const removeProduct = productArray.removeProductsById(id);
+    assert.equal(removeProduct, expected);
 });

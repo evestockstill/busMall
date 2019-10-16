@@ -1,9 +1,9 @@
-export class ProductArray {
+export class ProductData {
     constructor(products) {
         this.products = products.slice();
     }
     getProducts() {
-        return this.trees;
+        return this.products;
     }
     removeProductsById(someId) {
         this.products.forEach(product => {
