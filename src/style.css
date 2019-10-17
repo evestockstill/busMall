@@ -1,35 +1,45 @@
-html, body {
-
-}
-body {
-   background-color: #DBDDC0;
+* {
+   background: hsla(0, 0%, 23%, 1);
 }
 img {
    height: 250px;
    width: 250px;
 }
+#headline {
+   text-align: center;
+   padding: 25px;
+   font-size: 3rem;
+}
+.product-radio {
+   background: transparent;
+}
 .pick-a-pic {
    display: flex;
-   justify-content: space-between;
+   justify-content: space-evenly;
    align-content: center;
    align-items: center;
-   width: 852px;
-   height: 377px;
+   /* width: 852px;
+   height: 377px; */
    margin: auto;
    margin-top: 10%;
    padding: 30px;
-   background-color: #5AAEAA;
+   /* background-color: hsla(0, 0%, 11%, 1); */
    border-radius: 2em;
 }
 .radio-image {
    border: 10px solid transparent;
    align-content: center;
    border-radius: 2em;
+   cursor: pointer;
+   transition: all 1s ease;
 
 }
 input:checked + .radio-image {
-   border: 10px solid #D05749;
+   border: 5px solid rgb(18, 125, 187);
+ 
+   transform: perspective(400px) scaleZ(1.25) rotateY(360deg);
 }
+
 input {
    display: none;
 }

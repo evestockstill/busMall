@@ -1,3 +1,5 @@
+import { userPicksArray } from "./app.js";
+
 export class ProductArray {
     constructor(products) {
         this.products = products.slice();
@@ -24,3 +26,5 @@ export class ProductArray {
         return null;
     }
 }
+// const array = userPicksArray.find(item =>
+//     item.id === 'bag');

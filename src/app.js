@@ -2,12 +2,10 @@ import { productData } from './product-data.js';
 import { ProductArray } from './product-array.js';
 const productImageTags = document.querySelectorAll('img');
 const productRadioTags = document.querySelectorAll('input');
-const productName = document.getElementById('product.name');
+// const productName = document.getElementById('product.name');
 const products = new ProductArray(productData);
 const userPicksArray = [];
-// let randomProduct;
-// let randomProduct2;
-// let randomProduct3;
+
 
 const generateProducts = () => {
     const randomProduct = products.getRandomProduct();
@@ -52,12 +50,15 @@ function trackUserPicks(productId) {
         return;
     }
 }
+
 productRadioTags.forEach((radioTag) => {
     radioTag.addEventListener('input', (event) => {
         if (event.target) {
             trackUserPicks(event.target.value);
+           
         }
     });
 });
 
 export { userPicksArray };
+
