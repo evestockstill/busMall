@@ -1,5 +1,5 @@
-import { ProductData } from '../src/ProductArray.js';
-import { productData } from '../src/ProductDataArray';
+import { ProductArray } from '../src/product-array.js';
+import { productData } from '../src/product-data.js';
 const test = QUnit.test;
 
 test('retrieve product by id', function(assert) {

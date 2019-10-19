@@ -99,4 +99,25 @@ const wineGlass = {
     image: '../assets/wine-glass.jpg',
     name: 'Small Aperature Wine Glass'
 };
-export const productData = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, usb, waterCan, wineGlass];
+export const productData = [
+    bag,
+    banana, 
+    bathroom, 
+    boots, 
+    breakfast, 
+    bubblegum, 
+    chair, 
+    cthulhu, 
+    dogDuck, 
+    dragon, 
+    pen, 
+    petSweep, 
+    scissors, 
+    shark, 
+    sweep, 
+    tauntaun, 
+    unicorn, 
+    usb, 
+    waterCan, 
+    wineGlass
+];
