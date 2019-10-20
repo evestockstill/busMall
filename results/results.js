@@ -1,4 +1,4 @@
-import { userPicksArray } from './app.js';
+import { userPicksArray } from '../src/app.js';
 // import { productData } from './product-data.js';
 
 function convertArray(array) {

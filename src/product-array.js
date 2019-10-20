@@ -25,7 +25,7 @@ export class ProductArray {
     hasAnyProduct() {
         return this.products.length > 0;
     }
-    getRandomProducts() {
+    getRandomProduct() {
         const randomProductIndex = Math.floor(Math.random() * this.products.length);
         return this.products[randomProductIndex];
     }

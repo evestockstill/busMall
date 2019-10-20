@@ -99,7 +99,7 @@ const wineGlass = {
     image: '../assets/wine-glass.jpg',
     name: 'Small Aperature Wine Glass'
 };
-export const productData = [
+export const productDataArray = [
     bag,
     banana, 
     bathroom, 
