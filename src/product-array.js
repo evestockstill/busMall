@@ -2,13 +2,18 @@ import { userPicksArray } from '../src/app.js';
 export class ProductArray {
     constructor(products) {
         this.products = products.slice();
+        this.i = -1;
     }
     getProducts() {
         return this.products;
     }
+
+       
     getRandomProduct() {
-        const randomProductIndex = Math.floor(Math.random() * this.products.length);
-        return this.products[randomProductIndex];
+        this.i++;
+        if (this.i >= 20)
+            this.i = 0;
+        return this.products[this.i];
     }
     findById(items, id) {
         for (let i = 0; i < items.length; i++) {
@@ -20,5 +25,5 @@ export class ProductArray {
         return null;
     }
 }
-const array = userPicksArray.find(item =>
-    item.id === 'bag');
+// const array = userPicksArray.find(item =>
+//     item.id === 'bag');

@@ -33,7 +33,7 @@ img {
 input:checked + .radio-image {
    border: 5px solid rgb(18, 125, 187);
  
-   transform: perspective(400px) scaleZ(1.25) rotateY(360deg);
+   /* transform: perspective(400px) scaleZ(1.25) rotateY(360deg); */
 }
 input {
    display: none;

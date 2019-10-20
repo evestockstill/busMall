@@ -71,7 +71,7 @@ const shark = {
 };
 const sweep = {
     id: 'sweep',
-    image: '../assets/sweep.jpg',
+    image: '../assets/baby.png',
     name: 'Baby Mop Onesie'
 };
 const tauntaun = {

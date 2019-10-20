@@ -11,7 +11,6 @@ test('retrieve product by id', function(assert) {
     }; 
     const productArray = new ProductData(productData);
     const foundProduct = productArray.getProductById(id);
-    
     assert.deepEqual(foundProduct, expected);
 });
 test ('remove product by ID', function(assert) {
