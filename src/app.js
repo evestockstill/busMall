@@ -1,9 +1,12 @@
 import { productData } from './product-data.js';
 import { ProductArray } from './product-array.js';
+import { trackUserPick } from '../common/utilis.js';
 const productImageTags = document.querySelectorAll('img');
 const productRadioTags = document.querySelectorAll('input');
 const products = new ProductArray(productData);
-const userPicksArray = [];
+let clickedImages = [];
+let clicks = 0;
+
 
 const generateProducts = () => {
     const randomProduct = products.getRandomProduct();
@@ -22,28 +25,19 @@ const generateProducts = () => {
         }
     });
 };
-generateProducts();
-function trackUserPicks(productId) {
-   
-    let found = products.findById(userPicksArray, productId);
-    generateProducts();
-    if (!found) {
-        found = {
-            id: productId,
-            timesClicked: 1
-        };
-        userPicksArray.push(found);
-    } else {
-        found.timesClicked++;
-        return;
-    }
-}
+
 productRadioTags.forEach((radioTag) => {
     radioTag.addEventListener('click', (event) => {
-        if (event.target) {
-            trackUserPicks(event.target.value);
+        const userChoice = event.target.value;
+        trackUserPick(clickedImages, userChoice);
+        generateProducts();
+        clicks++;
+        if (clicks === 25) {
+            window.location = './results/results-page.html';
+
         }
+
     });
+
 });
-export { userPicksArray };
 

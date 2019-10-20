@@ -1,29 +1,32 @@
-import { userPicksArray } from '../src/app.js';
 export class ProductArray {
     constructor(products) {
         this.products = products.slice();
-        this.i = -1;
     }
     getProducts() {
         return this.products;
     }
-
-       
-    getRandomProduct() {
-        this.i++;
-        if (this.i >= 20)
-            this.i = 0;
-        return this.products[this.i];
-    }
-    findById(items, id) {
-        for (let i = 0; i < items.length; i++) {
-            const item = items[i];
-            if (item.id === id) {
-                return item;
+    removeProductById(someId) {
+        this.products.forEach((product, i) => {
+            if (someId === product.id) {
+                this.products.splice(i, 1);
             }
-        }
+        });
         return null;
     }
+    getProductById(someId) {
+        let productsMatch;
+        this.products.forEach(products => {
+            if (someId === products.id) {
+                productsMatch = products;
+            }
+            return productsMatch;
+        });
+    }
+    hasAnyProduct() {
+        return this.products.length > 0;
+    }
+    getRandomProducts() {
+        const randomProductIndex = Math.floor(Math.random() * this.products.length);
+        return this.products[randomProductIndex];
+    }
 }
-// const array = userPicksArray.find(item =>
-//     item.id === 'bag');
