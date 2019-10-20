@@ -1,22 +1,24 @@
 import { ProductArray } from '../src/product-array.js';
-import { productData } from '../src/product-data.js';
+import { productDataArray } from '../src/product-data.js';
+
+const productArray = new ProductArray(productDataArray);
 const test = QUnit.test;
 
-test('retrieve product by id', function(assert) {
-    const id = 'bag';
+test('gets product by id', assert => {
+    const id = 'banana';
     const expected = {
-        id: 'bag',
-        image: '../assets/bag.jpg',
-        name: 'Rolling R2-D2 Suitcase'
-    }; 
-    const productArray = new ProductData(productData);
-    const foundProduct = productArray.getProductById(id);
-    assert.deepEqual(foundProduct, expected);
+        id: 'banana',
+        image: '../assets/banana.jpg',
+        name: 'Banana Slicer',
+    };
+    const found = productArray.getProductById(id);
+    assert.deepEqual(found, expected);
 });
 test ('remove product by ID', function(assert) {
     const id = 'bag';
     const expected = null;
-    const productArray = new ProductData(productData);
-    const removeProduct = productArray.removeProductsById(id);
+    const productArray = new ProductArray(productDataArray);
+    const removeProduct = productArray.removeProductById(id);
     assert.equal(removeProduct, expected);
 });
+

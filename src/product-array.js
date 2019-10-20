@@ -14,13 +14,13 @@ export class ProductArray {
         return null;
     }
     getProductById(someId) {
-        let productsMatch;
-        this.products.forEach(products => {
-            if (someId === products.id) {
-                productsMatch = products;
+        let productMatch;
+        this.products.forEach(product => {
+            if (someId === product.id) {
+                productMatch = product;
             }
-            return productsMatch;
         });
+        return productMatch;
     }
     hasAnyProduct() {
         return this.products.length > 0;
