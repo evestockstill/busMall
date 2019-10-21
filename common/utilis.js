@@ -19,7 +19,5 @@ export function trackUserPick(userPick, id) {
         found.timesClicked++;
     }
 }
-// export function getRandomProduct(productData) {
-//     return Math.floor(Math.random() * productData.length);
-// }
+
 

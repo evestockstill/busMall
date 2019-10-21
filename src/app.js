@@ -28,12 +28,13 @@ const generateProduct = () => {
 };
 productRadioTags.forEach((radioTag) => {
     radioTag.addEventListener('click', (event) => {
+       
         const userChoice = event.target.value;
         trackUserPick(clickedImages, userChoice);
         generateProduct();
         clicks++;
         if (clicks === 25) {
-            window.location = './results/index.html';
+            window.location = '../results/index.html';
         }
 
     });
